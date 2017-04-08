@@ -1,10 +1,5 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import React from 'react';
+import SimpleTodo from './components/SimpleTodo';
 
-class HelloMessage extends React.Component {
-	render() {
-		return <div>Hello {this.props.name}</div>;
-	}
-}
-
-ReactDOM.render(<HelloMessage name="React"/>, document.querySelector('#app'));
+ReactDOM.render(<SimpleTodo name="React" />, document.querySelector('#app'));

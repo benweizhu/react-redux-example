@@ -5,6 +5,9 @@
   "repository": "git@github.com:benweizhu/react-redux-example.git",
   "author": "benweizhu <benweizhu@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack && webpack-dev-server"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
@@ -13,6 +16,11 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.28.0",
     "node-sass": "^4.5.2",
@@ -22,6 +30,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "prop-types": "^15.5.4",
     "react": "^15.5.2",
     "react-dom": "^15.5.2",
     "react-redux": "^5.0.3",
