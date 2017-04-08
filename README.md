@@ -1,3 +1,3 @@
 # react-redux-example
 
-This is a react workshop codebase.
+This is react workshop codebase.

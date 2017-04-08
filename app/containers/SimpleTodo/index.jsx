@@ -48,7 +48,7 @@ class SimpleTodo extends React.Component {
 
 SimpleTodo.propTypes = {
   addTodo: PropTypes.func.isRequired,
-  todos: PropTypes.arrayOf(PropTypes.string).isRequired
+  todos: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SimpleTodo);
