@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import SimpleTodo from './components/SimpleTodo';
+import SimpleTodo from './containers/SimpleTodo';
 
-ReactDOM.render(<SimpleTodo name="React" />, document.querySelector('#app'));
+ReactDOM.render(<SimpleTodo />, document.querySelector('#app'));
