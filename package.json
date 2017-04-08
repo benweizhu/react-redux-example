@@ -1,0 +1,21 @@
+{
+  "name": "react-redux-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:benweizhu/react-redux-example.git",
+  "author": "benweizhu <benweizhu@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.3.3",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^2.3.3"
+  },
+  "dependencies": {
+    "react": "^15.5.2",
+    "react-redux": "^5.0.3"
+  }
+}
