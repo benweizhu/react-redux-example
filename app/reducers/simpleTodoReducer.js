@@ -4,7 +4,10 @@ export default (state = { todos: [] }, action) => {
       return Object.assign({}, state, {
         todos: [
           ...state.todos,
-          action.todo
+          {
+            text: action.todo,
+            complete: false
+          }
         ]
       });
     default:
