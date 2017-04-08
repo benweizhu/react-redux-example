@@ -7,13 +7,13 @@ const cns = classNames.bind(styles);
 
 class SimpleList extends React.PureComponent {
   render() {
-    const listItems = this.props.todos.map(item => (<li key={item}>{item}</li>));
+    const listItems = this.props.todos.map((item, index) => (<li key={`todo-${index}`}>{item.text}</li>));
     return (<ul className={cns('container')}>{listItems}</ul>);
   }
 }
 
 SimpleList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.string).isRequired
+  todos: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default SimpleList;
