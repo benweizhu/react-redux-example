@@ -1,20 +1,10 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import SimpleTodo from './components/SimpleList';
 
-import allReducers from './reducers';
-import SimpleTodo from './containers/SimpleTodo';
-
-
-const store = createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const todos = [{ text: 'webpack' }, { text: 'react' }, { text: 'redux' }];
 
 ReactDOM.render(
-  <Provider store={store}>
-    <SimpleTodo />
-  </Provider>,
+  <SimpleTodo todos={todos} />,
   document.querySelector('#app')
 );
