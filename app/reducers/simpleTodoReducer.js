@@ -12,13 +12,15 @@ export default (state = { todos: [] }, action) => {
       });
     }
     case 'CHANGE_TODO_STATUS': {
-      state.todos.map((todo) => {
+      const todos = state.todos.map((todo) => {
         if (todo.text === action.todo.text) {
           todo.complete = action.todo.complete;
         }
         return todo;
       });
-      return state;
+      return Object.assign({}, state, {
+        todos
+      });
     }
     default:
       return state;

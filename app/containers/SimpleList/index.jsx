@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 
 import { changeTodoStatus } from '../../actions/todoActions';
-import SimpleItem from '../SimpleItem';
+import SimpleItem from '../../components/SimpleItem';
 import styles from './SimpleList.scss';
 
 const cns = classNames.bind(styles);
@@ -22,7 +22,7 @@ class SimpleList extends React.Component {
   render() {
     const listItems = this.props.todos.map((item, index) => (
       <li key={`todo-${index}`}>
-        <SimpleItem id={`todo-${index}`} value={item.text} onChange={this.handleItemChange} />
+        <SimpleItem id={`todo-${index}`} value={item.text} checked={item.complete} onChange={this.handleItemChange} />
       </li>
     ));
     return (<ul className={cns('container')}>{listItems}</ul>);
