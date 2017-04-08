@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 
-import SimpleList from '../../components/SimpleList';
+import SimpleList from '../SimpleList';
 import SimpleFilters from '../../components/SimpleFilters';
 import { addTodo, changeFilter } from '../../actions/todoActions';
 import styles from './SimpleTodo.scss';

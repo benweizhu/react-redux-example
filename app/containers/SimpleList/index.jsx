@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 
 import { changeTodoStatus } from '../../actions/todoActions';
-import SimpleItem from '../SimpleItem';
+import SimpleItem from '../../components/SimpleItem';
 import styles from './SimpleList.scss';
 
 const cns = classNames.bind(styles);
