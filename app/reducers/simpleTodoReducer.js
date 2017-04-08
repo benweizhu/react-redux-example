@@ -1,4 +1,4 @@
-export default (state = { todos: [] }, action) => {
+export default (state = { todos: [], selectedFilter: 'all' }, action) => {
   switch (action.type) {
     case 'ADD_TODO': {
       return Object.assign({}, state, {
@@ -12,13 +12,20 @@ export default (state = { todos: [] }, action) => {
       });
     }
     case 'CHANGE_TODO_STATUS': {
-      state.todos.map((todo) => {
+      const todos = state.todos.map((todo) => {
         if (todo.text === action.todo.text) {
           todo.complete = action.todo.complete;
         }
         return todo;
       });
-      return state;
+      return Object.assign({}, state, {
+        todos
+      });
+    }
+    case 'CHANGE_FILTER': {
+      return Object.assign({}, state, {
+        selectedFilter: action.selectedFilter
+      });
     }
     default:
       return state;
