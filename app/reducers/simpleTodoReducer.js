@@ -1,7 +1,12 @@
-export default (state = { todo: [] }, action) => {
+export default (state = { todos: [] }, action) => {
   switch (action.type) {
-    case 'USER_SELECTED':
-      return { ...state };
+    case 'ADD':
+      return Object.assign({}, state, {
+        todos: [
+          ...state.todos,
+          action.todo
+        ]
+      });
     default:
       return state;
   }
