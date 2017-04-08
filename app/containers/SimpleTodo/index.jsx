@@ -38,7 +38,7 @@ class SimpleTodo extends React.Component {
       <div className={cns('container')}>
         <h4>Simple React Redux Todo</h4>
         <div className={cns('todo')}>
-          <input type="text" value={this.state.inputValue} onChange={this.handleOnChange} onKeyPress={this.handleKeyPress} />
+          <input className={cns('todo-input')} type="text" value={this.state.inputValue} onChange={this.handleOnChange} onKeyPress={this.handleKeyPress} />
           <SimpleList todos={this.props.todos} />
         </div>
       </div>
