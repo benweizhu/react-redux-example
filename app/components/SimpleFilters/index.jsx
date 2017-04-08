@@ -8,12 +8,12 @@ const cns = classNames.bind(styles);
 class SimpleFilters extends React.PureComponent {
   render() {
     const radios = this.props.values.map(value => (
-      <div key={`filter-${value}`} className={cns('container')}>
+      <div key={`filter-${value}`} className={cns('radio')}>
         <input type="radio" name={this.props.name} value={value} id={`filter-${value}`} onChange={this.props.onChange} checked={this.props.value === value} />
         <label htmlFor={`filter-${value}`}>{value}</label>
       </div>
     ));
-    return (<div>{radios}</div>);
+    return (<div className={cns('container')}>{radios}</div>);
   }
 }
 
