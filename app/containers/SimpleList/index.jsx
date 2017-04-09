@@ -20,9 +20,9 @@ class SimpleList extends React.Component {
   };
 
   render() {
-    const listItems = this.props.todos.map((item, index) => (
-      <li key={`todo-${index}`}>
-        <SimpleItem id={`todo-${index}`} value={item.text} checked={item.complete} onChange={this.handleItemChange} />
+    const listItems = this.props.todos.map(item => (
+      <li key={`todo-${item.id}`}>
+        <SimpleItem id={`todo-${item.id}`} value={item.text} checked={item.complete} onChange={this.handleItemChange} />
       </li>
     ));
     return (<ul className={cns('container')}>{listItems}</ul>);
