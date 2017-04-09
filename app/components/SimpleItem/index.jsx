@@ -9,8 +9,8 @@ class SimpleItem extends React.PureComponent {
   render() {
     return (
       <div className={cns('container')}>
-        <input {...this.props} type="checkbox" checked={this.props.checked} onChange={this.props.onChange} />
-        <label htmlFor={this.props.id}>{this.props.value}</label>
+        <input id={this.props.id} value={this.props.value} type="checkbox" checked={this.props.checked} onChange={this.props.onChange} />
+        <label htmlFor={this.props.id}>{this.props.text}</label>
       </div>
     );
   }
@@ -18,7 +18,8 @@ class SimpleItem extends React.PureComponent {
 
 SimpleItem.propTypes = {
   id: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired
 };
