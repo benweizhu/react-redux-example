@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a45969153d65698a594c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7f9b2bdae62ef8f8bb06"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -25074,13 +25074,16 @@ const allReducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["c
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+let count = 0;
 /* harmony default export */ __webpack_exports__["a"] = ((state = { todos: [], selectedFilter: 'all' }, action) => {
   switch (action.type) {
     case 'ADD_TODO': {
+      count += 1;
       return Object.assign({}, state, {
         todos: [
           ...state.todos,
           {
+            id: count,
             text: action.todoText,
             complete: false
           }
@@ -25089,7 +25092,7 @@ const allReducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["c
     }
     case 'CHANGE_TODO_STATUS': {
       const todos = state.todos.map((todo) => {
-        if (todo.text === action.todo.text) {
+        if (todo.id === +action.todo.id) {
           todo.complete = action.todo.complete;
         }
         return todo;
@@ -25205,8 +25208,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(28);
@@ -25250,11 +25251,11 @@ var SimpleItem = function (_React$PureComponent) {
       return _react2.default.createElement(
         'div',
         { className: cns('container') },
-        _react2.default.createElement('input', _extends({}, this.props, { type: 'checkbox', checked: this.props.checked, onChange: this.props.onChange })),
+        _react2.default.createElement('input', { id: this.props.id, value: this.props.value, type: 'checkbox', checked: this.props.checked, onChange: this.props.onChange }),
         _react2.default.createElement(
           'label',
           { htmlFor: this.props.id },
-          this.props.value
+          this.props.text
         )
       );
     }
@@ -25265,7 +25266,8 @@ var SimpleItem = function (_React$PureComponent) {
 
 SimpleItem.propTypes = {
   id: _propTypes2.default.string.isRequired,
-  value: _propTypes2.default.string.isRequired,
+  text: _propTypes2.default.string.isRequired,
+  value: _propTypes2.default.number.isRequired,
   checked: _propTypes2.default.bool.isRequired,
   onChange: _propTypes2.default.func.isRequired
 };
@@ -25346,7 +25348,10 @@ var SimpleList = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SimpleList.__proto__ || Object.getPrototypeOf(SimpleList)).call.apply(_ref, [this].concat(args))), _this), _this.handleItemChange = function (e) {
-      _this.props.changeTodoStatus({ text: e.target.value, complete: e.target.checked });
+      _this.props.changeTodoStatus({
+        id: e.target.value,
+        complete: e.target.checked
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -25360,11 +25365,11 @@ var SimpleList = function (_React$Component) {
           return true;
         }
         return _this2.props.selectedFilter === 'finished' ? item.complete : !item.complete;
-      }).map(function (item, index) {
+      }).map(function (item) {
         return _react2.default.createElement(
           'li',
-          { key: 'todo-' + index },
-          _react2.default.createElement(_SimpleItem2.default, { id: 'todo-' + index, value: item.text, checked: item.complete, onChange: _this2.handleItemChange })
+          { key: 'todo-' + item.id },
+          _react2.default.createElement(_SimpleItem2.default, { id: 'todo-' + item.id, value: item.id, checked: item.complete, text: item.text, onChange: _this2.handleItemChange })
         );
       });
       return _react2.default.createElement(
