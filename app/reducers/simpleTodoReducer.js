@@ -16,7 +16,7 @@ export default (state = { todos: [] }, action) => {
     }
     case 'CHANGE_TODO_STATUS': {
       const todos = state.todos.map((todo) => {
-        if (todo.text === action.todo.text) {
+        if (todo.id === +action.todo.id) {
           todo.complete = action.todo.complete;
         }
         return todo;

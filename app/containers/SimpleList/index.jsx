@@ -16,13 +16,16 @@ const mapDispatchToProps = dispatch => (bindActionCreators({ changeTodoStatus },
 class SimpleList extends React.Component {
 
   handleItemChange = (e) => {
-    this.props.changeTodoStatus({ text: e.target.value, complete: e.target.checked });
+    this.props.changeTodoStatus({
+      id: e.target.value,
+      complete: e.target.checked
+    });
   };
 
   render() {
     const listItems = this.props.todos.map(item => (
       <li key={`todo-${item.id}`}>
-        <SimpleItem id={`todo-${item.id}`} value={item.text} checked={item.complete} onChange={this.handleItemChange} />
+        <SimpleItem id={`todo-${item.id}`} value={item.id} checked={item.complete} text={item.text} onChange={this.handleItemChange} />
       </li>
     ));
     return (<ul className={cns('container')}>{listItems}</ul>);
