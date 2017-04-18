@@ -6,7 +6,7 @@
   "author": "benweizhu <benweizhu@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack && webpack-dev-server"
+    "start": "webpack && webpack-dev-server --open"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

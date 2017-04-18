@@ -44,5 +44,6 @@ module.exports = {
     port: 9000,
     host: '0.0.0.0',
     hot: true
-  }
+  },
+  devtool: 'cheap-module-inline-source-map'
 };
